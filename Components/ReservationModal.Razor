@@ -1,0 +1,128 @@
+@using MasterYoga.Models
+@using System.ComponentModel.DataAnnotations
+
+@if (IsVisible)
+{
+    <div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-in fade-in duration-200">
+        <div class="bg-[#131c54] border border-blue-900/80 rounded-xl max-w-lg w-full p-6 md:p-8 text-white shadow-2xl relative">
+            <button @onclick="OnClose" class="absolute top-4 right-4 text-blue-200 hover:text-white text-2xl font-light leading-none">
+                ✕
+            </button>
+
+            @if (isSuccess)
+            {
+                <div class="text-center py-8 space-y-4">
+                    <div class="w-16 h-16 bg-green-500/20 text-green-400 rounded-full flex items-center justify-center mx-auto text-3xl">
+                        ✓
+                    </div>
+                    <h3 class="text-2xl font-black uppercase text-white">May The Force Be With You</h3>
+                    <p class="text-blue-100/80 text-sm">
+                        Reservation confirmed for <strong class="text-white">@model.FullName</strong>.<br />
+                        A confirmation holocron has been dispatched to <strong class="text-white">@model.Email</strong>.
+                    </p>
+                    <button @onclick="ResetAndClose" class="mt-4 bg-[#8b9efa] text-slate-950 font-bold px-6 py-2.5 rounded-md text-sm uppercase">
+                        Close
+                    </button>
+                </div>
+            }
+            else
+            {
+                <h3 class="text-2xl font-black uppercase tracking-tight text-white mb-2">
+                    Reserve Your Jedi Spot
+                </h3>
+                <p class="text-blue-200/80 text-xs mb-6">
+                    Step onto the mat under the guidance of the Jedi High Council.
+                </p>
+
+                <EditForm Model="@model" OnValidSubmit="HandleSubmit">
+                    <DataAnnotationsValidator />
+
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-blue-200 mb-1">Jedi Full Name</label>
+                            <InputText @bind-Value="model.FullName" class="w-full bg-[#0d143f] border border-blue-800/80 rounded-md px-3.5 py-2 text-sm text-white focus:outline-none focus:border-blue-400" placeholder="e.g., Ahsoka Tano" />
+                            <ValidationMessage For="@(() => model.FullName)" class="text-red-400 text-xs mt-1" />
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-blue-200 mb-1">Comlink Email</label>
+                                <InputText @bind-Value="model.Email" class="w-full bg-[#0d143f] border border-blue-800/80 rounded-md px-3.5 py-2 text-sm text-white focus:outline-none focus:border-blue-400" placeholder="jedi@order.com" />
+                                <ValidationMessage For="@(() => model.Email)" class="text-red-400 text-xs mt-1" />
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-blue-200 mb-1">Phone / Holo-ID</label>
+                                <InputText @bind-Value="model.Phone" class="w-full bg-[#0d143f] border border-blue-800/80 rounded-md px-3.5 py-2 text-sm text-white focus:outline-none focus:border-blue-400" placeholder="(203) 555-5555" />
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-blue-200 mb-1">Desired Session</label>
+                            <InputSelect @bind-Value="model.ClassTitle" class="w-full bg-[#0d143f] border border-blue-800/80 rounded-md px-3.5 py-2 text-sm text-white focus:outline-none focus:border-blue-400">
+                                <option value="Master Yoda Frog Malasana & Hip Mobility">Master Yoda Frog Malasana (60 min)</option>
+                                <option value="Cobra & Upward Dog Spine Realignment">Cobra & Upward Dog Spine (45 min)</option>
+                                <option value="Soresu Defensive Vinyasa Flow">Soresu Defensive Vinyasa (75 min)</option>
+                                <option value="Vaapad High-Intensity Power Stretch">Vaapad Power Stretch (60 min)</option>
+                                <option value="Nautolan Aquatic Yin & Deep Restoration">Nautolan Aquatic Yin (90 min)</option>
+                            </InputSelect>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-blue-200 mb-1">Preferred Date</label>
+                                <InputDate @bind-Value="model.PreferredDate" class="w-full bg-[#0d143f] border border-blue-800/80 rounded-md px-3.5 py-2 text-sm text-white focus:outline-none focus:border-blue-400" />
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-blue-200 mb-1">Force Sensitivity</label>
+                                <InputSelect @bind-Value="model.ForceRank" class="w-full bg-[#0d143f] border border-blue-800/80 rounded-md px-3.5 py-2 text-sm text-white focus:outline-none focus:border-blue-400">
+                                    <option value="Youngling">Youngling (Beginner)</option>
+                                    <option value="Padawan">Padawan (Intermediate)</option>
+                                    <option value="Jedi Knight">Jedi Knight (Advanced)</option>
+                                    <option value="Jedi Master">Jedi Master (Elite)</option>
+                                </InputSelect>
+                            </div>
+                        </div>
+
+                        <div class="pt-2 flex justify-end space-x-3">
+                            <button type="button" @onclick="OnClose" class="px-4 py-2 text-sm font-semibold text-blue-200 hover:text-white">
+                                Cancel
+                            </button>
+                            <button type="submit" class="bg-[#8b9efa] hover:bg-[#7a8ff0] text-slate-950 font-bold px-6 py-2 rounded-md text-xs uppercase tracking-wider transition-colors">
+                                Confirm Spot
+                            </button>
+                        </div>
+                    </div>
+                </EditForm>
+            }
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter] public bool IsVisible { get; set; }
+    [Parameter] public EventCallback OnClose { get; set; }
+    [Parameter] public string? PreselectedClass { get; set; }
+
+    private ReservationModel model = new();
+    private bool isSuccess = false;
+
+    protected override void OnParametersSet()
+    {
+        if (!string.IsNullOrEmpty(PreselectedClass))
+        {
+            model.ClassTitle = PreselectedClass;
+        }
+    }
+
+    private void HandleSubmit()
+    {
+        isSuccess = true;
+    }
+
+    private async Task ResetAndClose()
+    {
+        isSuccess = false;
+        model = new();
+        await OnClose.InvokeAsync();
+    }
+}
