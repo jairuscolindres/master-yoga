@@ -1,7 +1,272 @@
-﻿@page "/"
+@page "/"
+@rendermode InteractiveServer
 
-<PageTitle>Home</PageTitle>
+<PageTitle>Master Yoga - Stretch Your Legs</PageTitle>
 
-<h1>Hello, world!</h1>
+<!-- Classes Modal -->
+<ClassesModal IsVisible="showClassesModal" 
+              OnClose="() => showClassesModal = false" 
+              OnSelectClass="HandleClassSelected" />
 
-Welcome to your new app.
+<!-- Reservation Modal -->
+<ReservationModal IsVisible="showReservationModal" 
+                  OnClose="() => showReservationModal = false" 
+                  PreselectedClass="@selectedClassTitle" />
+
+<div class="w-full bg-[#29326c] text-white">
+
+    <!-- TOP NAVIGATION BAR -->
+    <header class="w-full bg-[#29326c] px-4 md:px-8 py-4 flex items-center justify-between border-b border-[#38438a]/40">
+        <div>
+            <a href="/" class="font-display font-black text-xl md:text-2xl text-[#0c102b] tracking-tight hover:opacity-90 transition-opacity">
+                Master Yoga
+            </a>
+        </div>
+        
+        <div class="flex items-center space-x-4 md:space-x-8">
+            <a href="/" class="text-xs md:text-sm font-black tracking-widest text-[#0c102b] hover:text-white uppercase transition-colors">
+                HOME
+            </a>
+            <a href="#about" class="text-xs md:text-sm font-black tracking-widest text-[#0c102b] hover:text-white uppercase transition-colors">
+                ABOUT
+            </a>
+            <button @onclick="() => OpenReservationModal()" 
+                    class="bg-[#808dfd] hover:bg-[#929ffd] text-[#0c102b] font-black text-[11px] md:text-xs px-4 py-2 rounded-md uppercase tracking-wider transition-all shadow-sm active:scale-95">
+                RESERVE YOUR SPOT
+            </button>
+        </div>
+    </header>
+
+    <!-- SECTION 1: HERO TITLE BANNER -->
+    <section class="bg-[#4a5cce] px-4 md:px-8 py-3 md:py-5 border-y border-[#38438a]/30 select-none">
+        <h1 class="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-display font-black tracking-tighter text-white uppercase leading-none">
+            STRETCH YOUR LEGS.
+        </h1>
+    </section>
+
+    <!-- SECTION 2: TOP GRID (FROG YODA & FOR THE CHOSEN) -->
+    <section class="grid grid-cols-1 md:grid-cols-12 border-b border-[#38438a]">
+        <!-- Left: White Box with Frog Yoda -->
+        <div class="md:col-span-8 bg-white flex items-center justify-center p-6 md:p-10 min-h-[300px] md:min-h-[420px]">
+            <img src="images/yoda-squat.png" 
+                 alt="Master Yoda Malasana Frog Squat" 
+                 class="max-h-[300px] md:max-h-[360px] w-auto object-contain transition-transform duration-300 hover:scale-105" />
+        </div>
+
+        <!-- Right: For The Chosen -->
+        <div class="md:col-span-4 bg-[#29326c] p-6 md:p-10 flex flex-col justify-between border-t md:border-t-0 md:border-l border-[#38438a]">
+            <div>
+                <h2 class="text-2xl md:text-3xl font-display font-black text-white uppercase tracking-tight mb-4">
+                    FOR THE CHOSEN
+                </h2>
+            </div>
+            <div class="space-y-6">
+                <p class="text-xs md:text-sm text-blue-100/90 leading-relaxed font-normal">
+                    Train like an yoga master with top-tier equipment and expert programming. Whether you're building splitting or stretching your arms, we help you push past limits.
+                </p>
+                <div>
+                    <button @onclick="() => OpenReservationModal()" 
+                            class="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-blue-300 hover:text-white transition-colors cursor-pointer">
+                        ABOUT US
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: THREE-COLUMN ROW (GUIDED, OPEN GYM, COBRA YODA) -->
+    <section id="about" class="grid grid-cols-1 md:grid-cols-3 border-b border-[#38438a]">
+        <!-- Column 1: Guided By Masters -->
+        <div class="bg-[#29326c] p-6 md:p-10 flex flex-col justify-between border-b md:border-b-0 md:border-r border-[#38438a] min-h-[260px]">
+            <div>
+                <h3 class="text-2xl md:text-3xl font-display font-black text-white uppercase tracking-tight leading-tight mb-4">
+                    GUIDED BY<br />MASTERS
+                </h3>
+            </div>
+            <p class="text-xs md:text-sm text-blue-100/90 leading-relaxed font-normal mt-auto pt-4">
+                We believe in creating a positive environment where you can thrive. We're here to help you achieve your goals and unlock your full potential.
+            </p>
+        </div>
+
+        <!-- Column 2: Dynamic Open Gym -->
+        <div class="bg-[#29326c] p-6 md:p-10 flex flex-col justify-between border-b md:border-b-0 md:border-r border-[#38438a] min-h-[260px]">
+            <div>
+                <h3 class="text-2xl md:text-3xl font-display font-black text-white uppercase tracking-tight leading-tight mb-4">
+                    DYNAMIC OPEN GYM
+                </h3>
+            </div>
+            <p class="text-xs md:text-sm text-blue-100/90 leading-relaxed font-normal mt-auto pt-4">
+                Our facility is the optimal environment for stretching and relaxation, fully equipped with top-of-the-line tools, ample training areas, and a focus on functional movement.
+            </p>
+        </div>
+
+        <!-- Column 3: Yoda Cobra Pose Illustration -->
+        <div class="bg-[#f2bf86] flex items-center justify-center overflow-hidden min-h-[260px]">
+            <img src="images/yoda-cobra.png" 
+                 alt="Yoda Cobra Pose Bhujangasana" 
+                 class="w-full h-full object-cover min-h-[260px] max-h-[380px] transition-transform duration-300 hover:scale-105" />
+        </div>
+    </section>
+
+    <!-- SECTION 4: JOIN THE COUNCIL BANNER -->
+    <section class="bg-[#4a5cce] px-4 md:px-8 py-3 md:py-5 border-b border-[#38438a]/30 select-none">
+        <h2 class="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-display font-black tracking-tighter uppercase leading-none">
+            <span class="text-white">JOIN THE </span><span class="text-[#808dfd]">COUNCIL</span>
+        </h2>
+    </section>
+
+    <!-- SECTION 5: DISCOVER YOUR POTENTIAL & JEDI COUNCIL PHOTO -->
+    <section class="grid grid-cols-1 md:grid-cols-12 border-b border-[#38438a]">
+        <!-- Left: Discover Your Potential -->
+        <div class="md:col-span-4 bg-[#29326c] p-6 md:p-10 flex flex-col justify-between border-b md:border-b-0 md:border-r border-[#38438a]">
+            <div>
+                <h3 class="text-2xl md:text-3xl font-display font-black text-white uppercase tracking-tight leading-tight mb-8">
+                    DISCOVER YOUR<br />POTENTIAL
+                </h3>
+
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="text-xs md:text-sm font-display font-black text-white uppercase tracking-wider mb-1">
+                            EXPERT MASTERS
+                        </h4>
+                        <p class="text-xs text-blue-200/90 leading-relaxed">
+                            Jedi Master who are passionate about the progress of young padawans.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h4 class="text-xs md:text-sm font-display font-black text-white uppercase tracking-wider mb-1">
+                            PHILOSOPHY-DRIVEN PROGRAMS
+                        </h4>
+                        <p class="text-xs text-blue-200/90 leading-relaxed">
+                            Workouts that let you discover more about yourself.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h4 class="text-xs md:text-sm font-display font-black text-white uppercase tracking-wider mb-1">
+                            A SUPPORTIVE COUNCIL
+                        </h4>
+                        <p class="text-xs text-blue-200/90 leading-relaxed">
+                            A council that pushes you to be your best.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8">
+                <button @onclick="OpenClassesModal" 
+                        class="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-blue-300 hover:text-white transition-colors cursor-pointer flex items-center gap-1.5 group">
+                    <span>VIEW CLASSES</span>
+                    <span class="inline-block transition-transform duration-200 group-hover:translate-x-1">→</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Right: Jedi Council Photo -->
+        <div class="md:col-span-8 bg-[#0a0f28] flex items-stretch overflow-hidden">
+            <img src="images/jedi-council-hd.png" 
+                 alt="The Jedi High Council" 
+                 class="w-full h-full object-cover min-h-[340px] md:min-h-[460px] transition-transform duration-300 hover:scale-[1.02]" />
+        </div>
+    </section>
+
+    <!-- SECTION 6: CTA BANNER (JOIN THE JEDI ORDER TODAY!) -->
+    <section class="bg-[#150073] py-16 md:py-24 px-4 text-center border-b border-[#38438a]/50 flex flex-col items-center justify-center">
+        <span class="text-[10px] md:text-xs font-black uppercase tracking-[0.3em] text-blue-300 mb-3 block">
+            WHAT WE BELIEVE IN
+        </span>
+        <h2 class="text-2xl sm:text-4xl md:text-5xl font-display font-black text-white uppercase tracking-tight mb-8">
+            JOIN THE JEDI ORDER TODAY!
+        </h2>
+        <button @onclick="() => OpenReservationModal()" 
+                class="bg-[#202758] hover:bg-[#2c367a] border border-blue-500/30 text-blue-200 hover:text-white px-8 py-3.5 rounded text-xs font-black uppercase tracking-[0.2em] transition-all shadow-xl hover:shadow-blue-600/30 active:scale-95 cursor-pointer">
+            RESERVE YOUR SPOT
+        </button>
+    </section>
+
+    <!-- SECTION 7: FOOTER -->
+    <footer class="bg-[#29326c] px-6 md:px-12 pt-12 md:pt-16 pb-12 text-white">
+        <!-- Giant Watermark Logo -->
+        <div class="text-4xl sm:text-6xl md:text-7xl font-display font-black uppercase tracking-tighter text-[#1b224d] mb-12 select-none leading-none">
+            MASTER YOGA
+        </div>
+
+        <!-- Three Columns Info -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12">
+            <!-- Col 1: Contact -->
+            <div>
+                <h5 class="text-xs font-display font-black uppercase tracking-widest text-white mb-3">
+                    CONTACT
+                </h5>
+                <div class="text-xs text-blue-200/80 leading-relaxed font-medium space-y-1">
+                    <p>Email: <a href="mailto:yoga@jedicouncil.com" class="hover:text-white transition-colors">yoga@jedicouncil.com</a></p>
+                    <p>Phone: <a href="tel:2035556555" class="hover:text-white transition-colors">(203) 555-6555</a></p>
+                </div>
+            </div>
+
+            <!-- Col 2: Opening Hours -->
+            <div>
+                <h5 class="text-xs font-display font-black uppercase tracking-widest text-white mb-3">
+                    OPENING HOURS
+                </h5>
+                <div class="text-xs text-blue-200/80 font-medium space-y-1">
+                    <div class="flex justify-between max-w-[200px]">
+                        <span>MON – FRI</span>
+                        <span>5:00 – 23:00</span>
+                    </div>
+                    <div class="flex justify-between max-w-[200px]">
+                        <span>SATURDAYS</span>
+                        <span>6:00 – 16:00</span>
+                    </div>
+                    <div class="flex justify-between max-w-[200px]">
+                        <span>SUNDAYS</span>
+                        <span>6:00 – 13:00</span>
+                    </div>
+                    <div class="flex justify-between max-w-[200px]">
+                        <span>HOLIDAYS</span>
+                        <span>8:00 – 16:00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Col 3: Social -->
+            <div>
+                <h5 class="text-xs font-display font-black uppercase tracking-widest text-white mb-3">
+                    SOCIAL
+                </h5>
+                <div class="text-xs text-blue-200/80 font-medium space-y-1.5 flex flex-col">
+                    <a href="https://instagram.com" target="_blank" class="hover:text-white transition-colors">Instagram</a>
+                    <a href="https://x.com" target="_blank" class="hover:text-white transition-colors">X</a>
+                    <a href="https://linkedin.com" target="_blank" class="hover:text-white transition-colors">LinkedIn</a>
+                    <a href="https://spotify.com" target="_blank" class="hover:text-white transition-colors">Spotify</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+@code {
+    private bool showClassesModal = false;
+    private bool showReservationModal = false;
+    private string? selectedClassTitle;
+
+    private void OpenReservationModal(string? classTitle = null)
+    {
+        selectedClassTitle = classTitle;
+        showReservationModal = true;
+    }
+
+    private void OpenClassesModal()
+    {
+        showClassesModal = true;
+    }
+
+    private void HandleClassSelected(string classTitle)
+    {
+        showClassesModal = false;
+        selectedClassTitle = classTitle;
+        showReservationModal = true;
+    }
+}
