@@ -1,0 +1,228 @@
+@page "/"
+@inject NavigationManager Navigation
+@rendermode InteractiveServer
+
+<PageTitle>Master Yoga - Stretch Your Legs</PageTitle>
+
+<!-- Classes Modal -->
+<ClassesModal IsVisible="showClassesModal" 
+              OnClose="() => showClassesModal = false" 
+              OnSelectClass="HandleClassSelected" />
+
+<div class="home-page-wrapper">
+
+    <!-- TOP NAVIGATION BAR -->
+    <header class="home-navbar">
+        <a href="/" class="home-logo">
+            Master Yoga
+        </a>
+
+        <nav class="home-nav-menu">
+            <a href="/" class="home-nav-link">HOME</a>
+            <a href="/about" class="home-nav-link">ABOUT</a>
+            <a href="/reserve" class="home-nav-btn">
+                RESERVE YOUR SPOT
+            </a>
+        </nav>
+    </header>
+
+    <!-- SECTION 1: HERO TITLE BANNER -->
+    <section class="home-hero-banner">
+        <h1 class="home-hero-title">
+            STRETCH YOUR LEGS.
+        </h1>
+    </section>
+
+    <!-- SECTION 2: TOP GRID (FROG YODA & FOR THE CHOSEN) -->
+    <section class="home-top-grid">
+        <!-- Left: White Box with Frog Yoda -->
+        <div class="home-yoda-panel">
+            <img src="images/yoda-squat.png" 
+                 alt="Master Yoda Malasana Frog Squat" />
+        </div>
+
+        <!-- Right: For The Chosen -->
+        <div class="home-chosen-panel">
+            <div>
+                <h2 class="home-chosen-title">
+                    FOR THE CHOSEN
+                </h2>
+            </div>
+            <div>
+                <p class="home-chosen-body">
+                    Train like an yoga master with top-tier equipment and expert programming. Whether you're building splitting or stretching your arms, we help you push past limits.
+                </p>
+                <a href="/about" class="home-text-link-btn">
+                    ABOUT US
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: THREE-COLUMN ROW (GUIDED, OPEN GYM, COBRA YODA) -->
+    <section id="about" class="home-three-col">
+        <!-- Column 1: Guided By Masters -->
+        <div class="home-col-card">
+            <div>
+                <h3 class="home-col-card-title">
+                    GUIDED BY<br />MASTERS
+                </h3>
+            </div>
+            <p class="home-col-card-body">
+                We believe in creating a positive environment where you can thrive. We're here to help you achieve your goals and unlock your full potential.
+            </p>
+        </div>
+
+        <!-- Column 2: Dynamic Open Gym -->
+        <div class="home-col-card">
+            <div>
+                <h3 class="home-col-card-title">
+                    DYNAMIC OPEN GYM
+                </h3>
+            </div>
+            <p class="home-col-card-body">
+                Our facility is the optimal environment for stretching and relaxation, fully equipped with top-of-the-line tools, ample training areas, and a focus on functional movement.
+            </p>
+        </div>
+
+        <!-- Column 3: Yoda Cobra Pose Illustration -->
+        <div class="home-cobra-panel">
+            <img src="images/yoda-cobra.png" 
+                 alt="Yoda Cobra Pose Bhujangasana" />
+        </div>
+    </section>
+
+    <!-- SECTION 4: JOIN THE COUNCIL BANNER -->
+    <section class="home-council-banner">
+        <h2 class="home-council-title">
+            <span class="home-council-title-white">JOIN THE </span><span class="home-council-title-accent">COUNCIL</span>
+        </h2>
+    </section>
+
+    <!-- SECTION 5: DISCOVER YOUR POTENTIAL & JEDI COUNCIL PHOTO -->
+    <section class="home-discover-grid">
+        <!-- Left: Discover Your Potential -->
+        <div class="home-discover-panel">
+            <div>
+                <h3 class="home-discover-title">
+                    DISCOVER YOUR<br />POTENTIAL
+                </h3>
+
+                <div class="home-features-list">
+                    <div>
+                        <h4 class="home-feature-heading">EXPERT MASTERS</h4>
+                        <p class="home-feature-body">
+                            Jedi Master who are passionate about the progress of young padawans.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h4 class="home-feature-heading">PHILOSOPHY-DRIVEN PROGRAMS</h4>
+                        <p class="home-feature-body">
+                            Workouts that let you discover more about yourself.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h4 class="home-feature-heading">A SUPPORTIVE COUNCIL</h4>
+                        <p class="home-feature-body">
+                            A council that pushes you to be your best.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <button @onclick="OpenClassesModal" class="home-view-classes-btn">
+                <span>VIEW CLASSES</span>
+                <span class="home-arrow">→</span>
+            </button>
+        </div>
+
+        <!-- Right: Jedi Council Photo -->
+        <div class="home-jedi-photo-panel">
+            <img src="images/jedi-council-hd.png" 
+                 alt="The Jedi High Council" />
+        </div>
+    </section>
+
+    <!-- SECTION 6: CTA BANNER (JOIN THE JEDI ORDER TODAY!) -->
+    <section class="home-cta-section">
+        <span class="home-cta-subtitle">
+            WHAT WE BELIEVE IN
+        </span>
+        <h2 class="home-cta-title">
+            JOIN THE JEDI ORDER TODAY!
+        </h2>
+        <a href="/reserve" class="home-nav-btn">
+            RESERVE YOUR SPOT
+        </a>
+    </section>
+
+    <!-- SECTION 7: FOOTER -->
+    <footer class="home-footer">
+        <!-- Giant Watermark Logo -->
+        <div class="home-footer-watermark">
+            MASTER YOGA
+        </div>
+
+        <!-- Three Columns Info -->
+        <div class="home-footer-grid">
+            <!-- Col 1: Contact -->
+            <div class="home-footer-col">
+                <h5 class="home-footer-heading">CONTACT</h5>
+                <p class="home-footer-text">Email: <a href="mailto:yoga@jedicouncil.com" class="home-footer-link">yoga@jedicouncil.com</a></p>
+                <p class="home-footer-text">Phone: <a href="tel:2035556555" class="home-footer-link">(203) 555-6555</a></p>
+            </div>
+
+            <!-- Col 2: Opening Hours -->
+            <div class="home-footer-col">
+                <h5 class="home-footer-heading">OPENING HOURS</h5>
+                <div class="home-hours-table">
+                    <div class="home-hours-row">
+                        <span>MON – FRI</span>
+                        <span>5:00 – 23:00</span>
+                    </div>
+                    <div class="home-hours-row">
+                        <span>SATURDAYS</span>
+                        <span>6:00 – 16:00</span>
+                    </div>
+                    <div class="home-hours-row">
+                        <span>SUNDAYS</span>
+                        <span>6:00 – 13:00</span>
+                    </div>
+                    <div class="home-hours-row">
+                        <span>HOLIDAYS</span>
+                        <span>8:00 – 16:00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Col 3: Social -->
+            <div class="home-footer-col">
+                <h5 class="home-footer-heading">SOCIAL</h5>
+                <div class="home-social-list">
+                    <a href="https://instagram.com" target="_blank" class="home-footer-link">Instagram</a>
+                    <a href="https://x.com" target="_blank" class="home-footer-link">X</a>
+                    <a href="https://linkedin.com" target="_blank" class="home-footer-link">LinkedIn</a>
+                    <a href="https://spotify.com" target="_blank" class="home-footer-link">Spotify</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+@code {
+    private bool showClassesModal = false;
+
+    private void OpenClassesModal()
+    {
+        showClassesModal = true;
+    }
+
+    private void HandleClassSelected(string classTitle)
+    {
+        showClassesModal = false;
+        Navigation.NavigateTo("/reserve");
+    }
+}

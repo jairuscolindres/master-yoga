@@ -1,0 +1,180 @@
+@page "/about"
+@rendermode InteractiveServer
+
+<PageTitle>About Us - PrimalTraining | Master Yoga</PageTitle>
+
+<div class="about-page-wrapper">
+
+    <!-- TOP NAVIGATION BAR -->
+    <header class="about-navbar">
+        <a href="/" class="about-logo">
+            PrimalTraining
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="about-nav-menu">
+            <a href="/" class="about-nav-link">HOME</a>
+            <a href="/about" class="about-nav-link active">ABOUT</a>
+            <a href="/reserve" class="about-nav-btn">
+                RESERVE YOUR SPOT
+            </a>
+        </nav>
+
+        <!-- Mobile Toggle Button (+) -->
+        <button class="about-mobile-toggle" @onclick="ToggleMobileMenu" aria-label="Toggle navigation">
+            @(isMobileMenuOpen ? "✕" : "+")
+        </button>
+    </header>
+
+    <!-- Mobile Dropdown Menu -->
+    <div class="about-mobile-menu @(isMobileMenuOpen ? "open" : "")">
+        <a href="/" class="about-nav-link" @onclick="CloseMobileMenu">HOME</a>
+        <a href="/about" class="about-nav-link active" @onclick="CloseMobileMenu">ABOUT</a>
+        <a href="/reserve" class="about-nav-btn" @onclick="CloseMobileMenu">
+            RESERVE YOUR SPOT
+        </a>
+    </div>
+
+    <!-- SECTION 1: HERO TITLE BANNER -->
+    <section class="about-hero-banner">
+        <h1 class="about-hero-title">
+            ABOUT US
+        </h1>
+    </section>
+
+    <!-- SECTION 2: TAP INTO THE FORCE & YODA LIGHTSABER -->
+    <section class="about-split-section about-section-force">
+        <!-- Text Column -->
+        <div class="about-text-col">
+            <h2 class="about-main-title">
+                TAP INTO THE FORCE.<br />FORGE A STRONGER YOU.
+            </h2>
+            <h3 class="about-subheading">
+                OUR VISION
+            </h3>
+            <p class="about-body-text">
+                Master Yoga is committed to delivering a training experience rooted in raw strength, functional fitness, and unwavering community support. We empower our members to tap into their primal power, achieve their goals, and live a life of strength, resilience, and unwavering determination.
+            </p>
+        </div>
+
+        <!-- Image Column -->
+        <div class="about-img-col">
+            <img src="images/about/yoda-stance.png" 
+                 alt="Master Yoda wielding green lightsaber" />
+        </div>
+    </section>
+
+    <!-- SECTION 3: DAGOBAH HANDSTAND & DYNAMIC OPEN GYM -->
+    <section class="about-split-section about-section-gym">
+        <!-- Image Column -->
+        <div class="about-img-col">
+            <img src="images/about/about-luke.png" 
+                 alt="Luke Skywalker Dagobah handstand training with Master Yoda" />
+        </div>
+
+        <!-- Text Column -->
+        <div class="about-text-col">
+            <h2 class="about-main-title">
+                DYNAMIC OPEN<br />GYM
+            </h2>
+            <p class="about-body-text" style="font-style: italic;">
+                At Master Yoga, we strip away the fluff and focus on the fundamentals. Our expert coaches guide you through intense, functional workouts designed to build raw strength, resilience, and a body capable of anything.
+            </p>
+        </div>
+    </section>
+
+    <!-- SECTION 4: FULL-WIDTH GYM BARBELL HERO WITH TEXT OVERLAY -->
+    <section class="about-gym-banner">
+        <img src="images/about/darth-vader-yoga.jpg" 
+             alt="Athlete performing barbell overhead press in gym" 
+             class="about-gym-bg-img" />
+        <div class="about-gym-overlay-gradient"></div>
+        <div class="about-gym-content">
+            <h2 class="about-gym-headline">
+                WE'VE CREATED A SPACE WHERE YOU CAN RECONNECT WITH YOUR SPRITUAL SELF.
+            </h2>
+        </div>
+    </section>
+
+    <!-- SECTION 5: CTA BANNER (JOIN THE JEDI ORDER TODAY!) -->
+    <section class="about-cta-section">
+        <span class="about-cta-subtitle">
+            WHAT WE BELIEVE IN
+        </span>
+        <h2 class="about-cta-title">
+            JOIN THE JEDI ORDER TODAY!
+        </h2>
+        <a href="/reserve" class="about-cta-btn">
+            RESERVE YOUR SPOT
+        </a>
+    </section>
+
+    <!-- SECTION 6: FOOTER -->
+    <footer class="about-footer">
+        <div class="about-footer-watermark">
+            Master Yoga
+        </div>
+
+        <div class="about-footer-grid">
+            <!-- Contact -->
+            <div class="about-footer-col">
+                <h4 class="about-footer-heading">CONTACT</h4>
+                <p class="about-footer-text">
+                    Email: <a href="mailto:yoga@jedicouncil.com" class="about-footer-link">yoga@jedicouncil.com</a>
+                </p>
+                <p class="about-footer-text">
+                    Phone: <a href="tel:2035556555" class="about-footer-link">(203) 555-6555</a>
+                </p>
+            </div>
+
+            <!-- Opening Hours -->
+            <div class="about-footer-col">
+                <h4 class="about-footer-heading">OPENING HOURS</h4>
+                <div class="about-hours-table">
+                    <div class="about-hours-row">
+                        <span>MON – FRI</span>
+                        <span>5:00 – 23:00</span>
+                    </div>
+                    <div class="about-hours-row">
+                        <span>SATURDAYS</span>
+                        <span>6:00 – 16:00</span>
+                    </div>
+                    <div class="about-hours-row">
+                        <span>SUNDAYS</span>
+                        <span>6:00 – 13:00</span>
+                    </div>
+                    <div class="about-hours-row">
+                        <span>HOLIDAYS</span>
+                        <span>8:00 – 16:00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social -->
+            <div class="about-footer-col">
+                <h4 class="about-footer-heading">SOCIAL</h4>
+                <div class="about-social-list">
+                    <a href="https://instagram.com" target="_blank" class="about-footer-link">Instagram</a>
+                    <a href="https://x.com" target="_blank" class="about-footer-link">X</a>
+                    <a href="https://linkedin.com" target="_blank" class="about-footer-link">LinkedIn</a>
+                    <a href="https://spotify.com" target="_blank" class="about-footer-link">Spotify</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+@code {
+    private bool isMobileMenuOpen = false;
+
+    private void ToggleMobileMenu()
+    {
+        isMobileMenuOpen = !isMobileMenuOpen;
+    }
+
+    private void CloseMobileMenu()
+    {
+        isMobileMenuOpen = false;
+    }
+}

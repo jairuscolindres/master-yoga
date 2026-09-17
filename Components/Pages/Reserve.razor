@@ -1,0 +1,186 @@
+@page "/reserve"
+@rendermode InteractiveServer
+
+<PageTitle>Reserve - Master Yoga</PageTitle>
+
+<div class="reserve-page-wrapper">
+
+    <!-- TOP NAVIGATION BAR -->
+    <header class="reserve-navbar">
+        <a href="/" class="reserve-logo">
+            Master Yoga
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="reserve-nav-menu">
+            <a href="/" class="reserve-nav-link">HOME</a>
+            <a href="/about" class="reserve-nav-link">ABOUT</a>
+            <a href="/reserve" class="reserve-nav-btn">
+                RESERVE YOUR SPOT
+            </a>
+        </nav>
+
+        <!-- Mobile Toggle Button (+) -->
+        <button class="reserve-mobile-toggle" @onclick="ToggleMobileMenu" aria-label="Toggle navigation">
+            @(isMobileMenuOpen ? "✕" : "+")
+        </button>
+    </header>
+
+    <!-- Mobile Dropdown Menu -->
+    <div class="reserve-mobile-menu @(isMobileMenuOpen ? "open" : "")">
+        <a href="/" class="reserve-nav-link" @onclick="CloseMobileMenu">HOME</a>
+        <a href="/about" class="reserve-nav-link" @onclick="CloseMobileMenu">ABOUT</a>
+        <a href="/reserve" class="reserve-nav-btn" @onclick="CloseMobileMenu">
+            RESERVE YOUR SPOT
+        </a>
+    </div>
+
+    <!-- SECTION 1: HERO TITLE BANNER -->
+    <section class="reserve-hero-banner">
+        <h1 class="reserve-hero-title">
+            <span class="reserve-hero-title-white">BOOK A</span>
+            <span class="reserve-hero-title-faded">SESSION</span>
+        </h1>
+    </section>
+
+    <!-- SECTION 2: THREE-COLUMN CARDS (STRENGTH, CONDITIONING, COMMUNITY CLASSES) -->
+    <section class="reserve-cards-section">
+        <!-- Card 1: STRENGTH -->
+        <div class="reserve-card">
+            <div>
+                <div class="reserve-card-header">
+                    <h2 class="reserve-card-title">STRENGTH</h2>
+                </div>
+                <div class="reserve-card-schedule">
+                    <div class="reserve-schedule-row">Weekdays at 6AM</div>
+                    <div class="reserve-schedule-row">Weekends and Holidays at 8AM</div>
+                </div>
+                <p class="reserve-card-body">
+                    Build a foundation of raw power with our comprehensive weightlifting and strength training programs.
+                </p>
+            </div>
+            <a href="/reserve" class="reserve-card-btn">
+                RESERVE YOUR SPOT
+            </a>
+        </div>
+
+        <!-- Card 2: CONDITIONING -->
+        <div class="reserve-card">
+            <div>
+                <div class="reserve-card-header">
+                    <h2 class="reserve-card-title">CONDITIONING</h2>
+                </div>
+                <div class="reserve-card-schedule">
+                    <div class="reserve-schedule-row">Weekdays at 8AM</div>
+                    <div class="reserve-schedule-row">Weekends and Holidays at 10AM</div>
+                </div>
+                <p class="reserve-card-body">
+                    Push your limits with high-intensity workouts that challenge your cardiovascular endurance and build functional fitness.
+                </p>
+            </div>
+            <a href="/reserve" class="reserve-card-btn">
+                RESERVE YOUR SPOT
+            </a>
+        </div>
+
+        <!-- Card 3: COMMUNITY CLASSES -->
+        <div class="reserve-card">
+            <div>
+                <div class="reserve-card-header">
+                    <h2 class="reserve-card-title">COMMUNITY<br />CLASSES</h2>
+                </div>
+                <div class="reserve-card-schedule">
+                    <div class="reserve-schedule-row">Every day on the hour</div>
+                </div>
+                <p class="reserve-card-body">
+                    Experience the power of collective effort with our custom Workout of the Day. Push your limits alongside like-minded individuals.
+                </p>
+            </div>
+            <a href="/reserve" class="reserve-card-btn">
+                RESERVE YOUR SPOT
+            </a>
+        </div>
+    </section>
+
+    <!-- SECTION 3: YOGA PERSONAL TRAINING -->
+    <section class="reserve-pt-section">
+        <h2 class="reserve-pt-title">
+            YOGA PERSONAL TRAINING
+        </h2>
+        <p class="reserve-pt-body">
+            Receive personalized guidance and tailored programs designed to unlock your individual primal potential. Our expert coaches will guide you every step of the way.
+        </p>
+        <a href="/reserve" class="reserve-pt-btn">
+            RESERVE YOUR SPOT
+        </a>
+    </section>
+
+    <!-- SECTION 4: FOOTER -->
+    <footer class="reserve-footer">
+        <div class="reserve-footer-watermark">
+            Master Yoga
+        </div>
+
+        <div class="reserve-footer-grid">
+            <!-- Contact -->
+            <div class="reserve-footer-col">
+                <h4 class="reserve-footer-heading">CONTACT</h4>
+                <p class="reserve-footer-text">
+                    Email: <a href="mailto:yoga@jedicouncil.com" class="reserve-footer-link">yoga@jedicouncil.com</a>
+                </p>
+                <p class="reserve-footer-text">
+                    Phone: <a href="tel:2035555555" class="reserve-footer-link">(203) 555-5555</a>
+                </p>
+            </div>
+
+            <!-- Opening Hours -->
+            <div class="reserve-footer-col">
+                <h4 class="reserve-footer-heading">OPENING HOURS</h4>
+                <div class="reserve-hours-table">
+                    <div class="reserve-hours-row">
+                        <span>MON – FRI</span>
+                        <span>5:00 – 23:00</span>
+                    </div>
+                    <div class="reserve-hours-row">
+                        <span>SATURDAYS</span>
+                        <span>8:00 – 16:00</span>
+                    </div>
+                    <div class="reserve-hours-row">
+                        <span>SUNDAYS</span>
+                        <span>8:00 – 13:00</span>
+                    </div>
+                    <div class="reserve-hours-row">
+                        <span>HOLIDAYS</span>
+                        <span>8:00 – 16:00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social -->
+            <div class="reserve-footer-col">
+                <h4 class="reserve-footer-heading">SOCIAL</h4>
+                <div class="reserve-social-list">
+                    <a href="https://instagram.com" target="_blank" class="reserve-footer-link">Instagram</a>
+                    <a href="https://x.com" target="_blank" class="reserve-footer-link">X</a>
+                    <a href="https://linkedin.com" target="_blank" class="reserve-footer-link">LinkedIn</a>
+                    <a href="https://spotify.com" target="_blank" class="reserve-footer-link">Spotify</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+@code {
+    private bool isMobileMenuOpen = false;
+
+    private void ToggleMobileMenu()
+    {
+        isMobileMenuOpen = !isMobileMenuOpen;
+    }
+
+    private void CloseMobileMenu()
+    {
+        isMobileMenuOpen = false;
+    }
+}

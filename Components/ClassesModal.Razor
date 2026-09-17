@@ -1,0 +1,57 @@
+@using MasterYoga.Models
+
+@if (IsVisible)
+{
+    <div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm animate-in fade-in duration-200">
+        <div class="bg-[#131c54] border border-blue-900/80 rounded-xl max-w-2xl w-full p-6 md:p-8 text-white shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button @onclick="OnClose" class="absolute top-4 right-4 text-blue-200 hover:text-white text-2xl font-light leading-none">
+                ✕
+            </button>
+
+            <h3 class="text-2xl md:text-3xl font-black uppercase tracking-tight text-white mb-2">
+                Jedi Temple Class Schedule
+            </h3>
+            <p class="text-blue-200/80 text-xs mb-6">
+                Philosophy-driven programs taught directly by Jedi Masters.
+            </p>
+
+            <div class="space-y-4">
+                @foreach (var item in ClassList)
+                {
+                    <div class="bg-[#0e1644] border border-blue-900/60 rounded-lg p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                        <div class="space-y-1">
+                            <div class="flex items-center gap-2">
+                                <span class="bg-blue-500/20 text-blue-300 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">
+                                    @item.Level
+                                </span>
+                                <span class="text-xs text-blue-200/70 font-mono">@item.Time • @item.Days</span>
+                            </div>
+                            <h4 class="text-lg font-bold text-white">@item.Title</h4>
+                            <p class="text-xs text-blue-100/75 max-w-md">@item.Description</p>
+                            <p class="text-xs text-blue-300 font-medium">Instructor: @item.Master</p>
+                        </div>
+                        <button @onclick="() => OnSelectClass.InvokeAsync(item.Title)" 
+                                class="bg-[#8b9efa] hover:bg-[#7a8ff0] text-slate-950 font-bold text-xs uppercase tracking-wider px-4 py-2.5 rounded-md self-start sm:self-center shrink-0 transition-colors">
+                            Book Class
+                        </button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter] public bool IsVisible { get; set; }
+    [Parameter] public EventCallback OnClose { get; set; }
+    [Parameter] public EventCallback<string> OnSelectClass { get; set; }
+
+    private List<YogaClassModel> ClassList = new()
+    {
+        new YogaClassModel { Title = "Master Yoda Frog Malasana & Hip Mobility", Master = "Grand Master Yoda", Level = "Padawan", Time = "06:30 AM", Days = "Mon, Wed, Fri", Description = "Connect with the living Force through deep pelvic grounding, hip openers, and frog malasana breathwork." },
+        new YogaClassModel { Title = "Cobra & Upward Dog Spine Realignment", Master = "Grand Master Yoda", Level = "Youngling", Time = "08:00 AM", Days = "Daily", Description = "A gentle spine extension flow opening the chest and heart chakra with mindful breathing." },
+        new YogaClassModel { Title = "Soresu Defensive Vinyasa Flow", Master = "Master Obi-Wan Kenobi", Level = "Jedi Knight", Time = "10:00 AM", Days = "Tue, Thu, Sat", Description = "Core stability, effortless deflection postures, and athletic kinetic transitions." },
+        new YogaClassModel { Title = "Vaapad High-Intensity Power Stretch", Master = "Master Mace Windu", Level = "Jedi Master", Time = "05:30 PM", Days = "Mon, Thu", Description = "Transform inner tension into profound flexibility and decisive mental focus." },
+        new YogaClassModel { Title = "Nautolan Aquatic Yin & Deep Restoration", Master = "Master Kit Fisto", Level = "Youngling", Time = "07:00 PM", Days = "Wed, Sun", Description = "Restorative long-hold fascial release to calm the nervous system." }
+    };
+}
