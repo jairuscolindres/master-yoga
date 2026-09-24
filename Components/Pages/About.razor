@@ -1,163 +1,154 @@
 @page "/about"
 @rendermode InteractiveServer
 
-<PageTitle>About Us - PrimalTraining | Master Yoga</PageTitle>
+<PageTitle>About Us - Master Yoga</PageTitle>
 
-<div class="about-page-wrapper">
+<div class="w-full min-h-screen bg-[#29326c] text-white font-sans overflow-x-hidden">
 
     <!-- TOP NAVIGATION BAR -->
-    <header class="about-navbar">
-        <a href="/" class="about-logo">
+    <header class="w-full bg-[#29326c] px-5 py-4 flex items-center justify-between border-b border-[#38438a]/40 relative z-40 md:px-10 lg:px-[60px]">
+        <a href="/" class="font-display font-black text-xl text-[#0c102b] no-underline tracking-tight transition-opacity hover:opacity-85 md:text-2xl">
             PrimalTraining
         </a>
 
         <!-- Desktop Navigation -->
-        <nav class="about-nav-menu">
-            <a href="/" class="about-nav-link">HOME</a>
-            <a href="/about" class="about-nav-link active">ABOUT</a>
-            <a href="/reserve" class="about-nav-btn">
+        <nav class="hidden md:flex items-center gap-7">
+            <a href="/" class="font-black text-[13px] tracking-[0.15em] uppercase text-[#0c102b] no-underline transition-colors hover:text-white">HOME</a>
+            <a href="/about" class="font-black text-[13px] tracking-[0.15em] uppercase text-white no-underline">ABOUT</a>
+            <a href="/reserve" class="font-black text-[12px] tracking-[0.1em] uppercase bg-[#808dfd] text-[#0c102b] py-[9px] px-[18px] rounded-md shadow-sm border-none transition-all hover:bg-[#939ffd] active:scale-[0.97] no-underline inline-block">
                 RESERVE YOUR SPOT
             </a>
         </nav>
 
         <!-- Mobile Toggle Button (+) -->
-        <button class="about-mobile-toggle" @onclick="ToggleMobileMenu" aria-label="Toggle navigation">
+        <button class="md:hidden flex items-center justify-center bg-transparent border-none text-[32px] font-light text-[#0c102b] cursor-pointer leading-none p-1 transition-colors hover:text-white"
+                @onclick="ToggleMobileMenu" aria-label="Toggle navigation">
             @(isMobileMenuOpen ? "✕" : "+")
         </button>
     </header>
 
     <!-- Mobile Dropdown Menu -->
-    <div class="about-mobile-menu @(isMobileMenuOpen ? "open" : "")">
-        <a href="/" class="about-nav-link" @onclick="CloseMobileMenu">HOME</a>
-        <a href="/about" class="about-nav-link active" @onclick="CloseMobileMenu">ABOUT</a>
-        <a href="/reserve" class="about-nav-btn" @onclick="CloseMobileMenu">
-            RESERVE YOUR SPOT
-        </a>
-    </div>
+    @if (isMobileMenuOpen)
+    {
+        <div class="flex flex-col bg-[#1f2756] px-6 py-[18px] border-b border-[#38438a] gap-4 md:hidden">
+            <a href="/" class="text-white font-black text-sm tracking-[0.15em] uppercase no-underline py-1.5" @onclick="CloseMobileMenu">HOME</a>
+            <a href="/about" class="text-white font-black text-sm tracking-[0.15em] uppercase no-underline py-1.5" @onclick="CloseMobileMenu">ABOUT</a>
+            <a href="/reserve" class="font-black text-[12px] tracking-[0.1em] uppercase bg-[#808dfd] text-[#0c102b] py-3 px-[18px] rounded-md text-center border-none no-underline inline-block hover:bg-[#939ffd]" @onclick="CloseMobileMenu">
+                RESERVE YOUR SPOT
+            </a>
+        </div>
+    }
 
     <!-- SECTION 1: HERO TITLE BANNER -->
-    <section class="about-hero-banner">
-        <h1 class="about-hero-title">
+    <section class="w-full bg-[#4a5cce] px-5 py-4 border-t border-b border-[#38438a]/30 select-none md:px-10 md:py-6 lg:px-[60px] lg:py-7">
+        <h1 class="font-display font-black leading-none tracking-[-0.03em] uppercase text-white m-0 text-[44px] md:text-[72px] lg:text-[96px]">
             ABOUT US
         </h1>
     </section>
 
     <!-- SECTION 2: TAP INTO THE FORCE & YODA LIGHTSABER -->
-    <section class="about-split-section about-section-force">
+    <section class="w-full flex flex-col-reverse border-b border-[#38438a] md:flex-row md:min-h-[380px]">
         <!-- Text Column -->
-        <div class="about-text-col">
-            <h2 class="about-main-title">
+        <div class="bg-[#150073] px-6 py-9 flex flex-col justify-center md:w-[65%] md:px-12 md:py-12 md:border-r md:border-[#38438a] lg:px-[60px] lg:py-16">
+            <h2 class="font-display font-black leading-[1.15] tracking-tight uppercase text-white m-0 mb-5 text-2xl md:text-[30px] lg:text-[36px]">
                 TAP INTO THE FORCE.<br />FORGE A STRONGER YOU.
             </h2>
-            <h3 class="about-subheading">
+            <h3 class="font-display font-black text-sm tracking-[0.05em] uppercase text-white m-0 mb-2.5">
                 OUR VISION
             </h3>
-            <p class="about-body-text">
+            <p class="text-[13px] leading-[1.65] text-[#b6bfe8] m-0 font-normal lg:text-[14px] lg:max-w-[580px]">
                 Master Yoga is committed to delivering a training experience rooted in raw strength, functional fitness, and unwavering community support. We empower our members to tap into their primal power, achieve their goals, and live a life of strength, resilience, and unwavering determination.
             </p>
         </div>
 
         <!-- Image Column -->
-        <div class="about-img-col">
-            <img src="images/about/yoda-stance.png" 
-                 alt="Master Yoda wielding green lightsaber" />
+        <div class="w-full flex items-center justify-center overflow-hidden bg-[#0c102b] min-h-[280px] md:w-[35%]">
+            <img src="images/about/yoda-stance.png"
+                 alt="Master Yoda wielding green lightsaber"
+                 class="w-full h-full object-cover block transition-transform hover:scale-[1.02]" />
         </div>
     </section>
 
     <!-- SECTION 3: DAGOBAH HANDSTAND & DYNAMIC OPEN GYM -->
-    <section class="about-split-section about-section-gym">
+    <section class="w-full flex flex-col border-b border-[#38438a] md:flex-row md:min-h-[380px]">
         <!-- Image Column -->
-        <div class="about-img-col">
-            <img src="images/about/about-luke.png" 
-                 alt="Luke Skywalker Dagobah handstand training with Master Yoda" />
+        <div class="w-full flex items-center justify-center overflow-hidden bg-[#0c102b] min-h-[280px] md:w-[65%] md:border-r md:border-[#38438a]">
+            <img src="images/about/about-luke.png"
+                 alt="Luke Skywalker Dagobah handstand training with Master Yoda"
+                 class="w-full h-full object-cover block transition-transform hover:scale-[1.02]" />
         </div>
 
         <!-- Text Column -->
-        <div class="about-text-col">
-            <h2 class="about-main-title">
+        <div class="bg-[#29326c] px-6 py-9 flex flex-col justify-center md:w-[35%] md:px-12 md:py-12 lg:px-[60px] lg:py-16">
+            <h2 class="font-display font-black leading-[1.15] tracking-tight uppercase text-white m-0 mb-5 text-2xl md:text-[30px] lg:text-[36px]">
                 DYNAMIC OPEN<br />GYM
             </h2>
-            <p class="about-body-text" style="font-style: italic;">
+            <p class="text-[13px] leading-[1.65] text-[#b6bfe8] m-0 font-normal italic lg:text-[14px] lg:max-w-[580px]">
                 At Master Yoga, we strip away the fluff and focus on the fundamentals. Our expert coaches guide you through intense, functional workouts designed to build raw strength, resilience, and a body capable of anything.
             </p>
         </div>
     </section>
 
-    <!-- SECTION 4: FULL-WIDTH GYM BARBELL HERO WITH TEXT OVERLAY -->
-    <section class="about-gym-banner">
-        <img src="images/about/darth-vader-yoga.jpg" 
-             alt="Athlete performing barbell overhead press in gym" 
-             class="about-gym-bg-img" />
-        <div class="about-gym-overlay-gradient"></div>
-        <div class="about-gym-content">
-            <h2 class="about-gym-headline">
+    <!-- SECTION 4: FULL-WIDTH GYM HERO WITH TEXT OVERLAY -->
+    <section class="w-full relative min-h-[320px] max-h-[520px] overflow-hidden flex items-end border-b border-[#38438a] bg-[#0b0e24] md:min-h-[420px] lg:min-h-[480px]">
+        <img src="images/about/darth-vader-yoga.jpg"
+             alt="Athlete performing barbell overhead press in gym"
+             class="absolute top-0 left-0 w-full h-full object-cover object-[center_25%] block z-[1]" />
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0c102b]/95 via-[#0c102b]/40 to-[#0c102b]/10 z-[2]"></div>
+        <div class="relative z-[3] px-6 py-8 max-w-[580px] md:px-10 md:py-12 md:max-w-[680px] lg:px-[60px] lg:py-14 lg:max-w-[760px]">
+            <h2 class="font-display font-black leading-[1.2] tracking-[-0.01em] uppercase text-white m-0 [text-shadow:0_2px_8px_rgba(0,0,0,0.7)] text-xl md:text-[26px] lg:text-[32px]">
                 WE'VE CREATED A SPACE WHERE YOU CAN RECONNECT WITH YOUR SPRITUAL SELF.
             </h2>
         </div>
     </section>
 
-    <!-- SECTION 5: CTA BANNER (JOIN THE JEDI ORDER TODAY!) -->
-    <section class="about-cta-section">
-        <span class="about-cta-subtitle">
+    <!-- SECTION 5: CTA BANNER -->
+    <section class="w-full bg-[#29326c] px-5 py-16 text-center flex flex-col items-center justify-center border-b border-[#38438a] md:py-20 lg:py-[100px]">
+        <span class="font-black text-[11px] tracking-[0.25em] uppercase text-[#808dfd] mb-3 block">
             WHAT WE BELIEVE IN
         </span>
-        <h2 class="about-cta-title">
+        <h2 class="font-display font-black leading-[1.15] tracking-tight uppercase text-white m-0 mb-7 text-[26px] md:text-[38px] lg:text-[46px]">
             JOIN THE JEDI ORDER TODAY!
         </h2>
-        <a href="/reserve" class="about-cta-btn">
+        <a href="/reserve" class="font-black text-[12px] tracking-[0.15em] uppercase bg-[#808dfd] text-[#0c102b] py-[13px] px-7 rounded-md border-none cursor-pointer shadow-[0_4px_14px_rgba(0,0,0,0.25)] transition-all hover:bg-[#939ffd] hover:shadow-[0_6px_18px_rgba(128,141,253,0.35)] active:scale-[0.97] no-underline inline-block">
             RESERVE YOUR SPOT
         </a>
     </section>
 
     <!-- SECTION 6: FOOTER -->
-    <footer class="about-footer">
-        <div class="about-footer-watermark">
+    <footer class="w-full bg-[#29326c] px-6 py-12 md:px-10 md:py-[60px] lg:px-[60px] lg:py-[72px]">
+        <div class="font-display font-black leading-none tracking-[-0.04em] uppercase text-[#161c3e] mb-10 select-none text-[40px] md:text-[64px] lg:text-[80px]">
             Master Yoga
         </div>
 
-        <div class="about-footer-grid">
-            <!-- Contact -->
-            <div class="about-footer-col">
-                <h4 class="about-footer-heading">CONTACT</h4>
-                <p class="about-footer-text">
-                    Email: <a href="mailto:yoga@jedicouncil.com" class="about-footer-link">yoga@jedicouncil.com</a>
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-10">
+            <div class="flex flex-col">
+                <h4 class="font-display font-black text-[13px] tracking-[0.15em] uppercase text-white m-0 mb-3.5">CONTACT</h4>
+                <p class="text-[12px] leading-[1.7] text-blue-200/85 m-0">
+                    Email: <a href="mailto:yoga@jedicouncil.com" class="text-blue-200/85 no-underline transition-colors hover:text-white">yoga@jedicouncil.com</a>
                 </p>
-                <p class="about-footer-text">
-                    Phone: <a href="tel:2035556555" class="about-footer-link">(203) 555-6555</a>
+                <p class="text-[12px] leading-[1.7] text-blue-200/85 m-0">
+                    Phone: <a href="tel:2035556555" class="text-blue-200/85 no-underline transition-colors hover:text-white">(203) 555-6555</a>
                 </p>
             </div>
 
-            <!-- Opening Hours -->
-            <div class="about-footer-col">
-                <h4 class="about-footer-heading">OPENING HOURS</h4>
-                <div class="about-hours-table">
-                    <div class="about-hours-row">
-                        <span>MON – FRI</span>
-                        <span>5:00 – 23:00</span>
-                    </div>
-                    <div class="about-hours-row">
-                        <span>SATURDAYS</span>
-                        <span>6:00 – 16:00</span>
-                    </div>
-                    <div class="about-hours-row">
-                        <span>SUNDAYS</span>
-                        <span>6:00 – 13:00</span>
-                    </div>
-                    <div class="about-hours-row">
-                        <span>HOLIDAYS</span>
-                        <span>8:00 – 16:00</span>
-                    </div>
+            <div class="flex flex-col">
+                <h4 class="font-display font-black text-[13px] tracking-[0.15em] uppercase text-white m-0 mb-3.5">OPENING HOURS</h4>
+                <div class="flex flex-col gap-1 max-w-[220px]">
+                    <div class="flex justify-between text-[12px] leading-[1.6] text-blue-200/85"><span>MON – FRI</span><span>5:00 – 23:00</span></div>
+                    <div class="flex justify-between text-[12px] leading-[1.6] text-blue-200/85"><span>SATURDAYS</span><span>6:00 – 16:00</span></div>
+                    <div class="flex justify-between text-[12px] leading-[1.6] text-blue-200/85"><span>SUNDAYS</span><span>6:00 – 13:00</span></div>
+                    <div class="flex justify-between text-[12px] leading-[1.6] text-blue-200/85"><span>HOLIDAYS</span><span>8:00 – 16:00</span></div>
                 </div>
             </div>
 
-            <!-- Social -->
-            <div class="about-footer-col">
-                <h4 class="about-footer-heading">SOCIAL</h4>
-                <div class="about-social-list">
-                    <a href="https://instagram.com" target="_blank" class="about-footer-link">Instagram</a>
-                    <a href="https://x.com" target="_blank" class="about-footer-link">X</a>
-                    <a href="https://linkedin.com" target="_blank" class="about-footer-link">LinkedIn</a>
-                    <a href="https://spotify.com" target="_blank" class="about-footer-link">Spotify</a>
+            <div class="flex flex-col">
+                <h4 class="font-display font-black text-[13px] tracking-[0.15em] uppercase text-white m-0 mb-3.5">SOCIAL</h4>
+                <div class="flex flex-col gap-1.5">
+                    <a href="https://instagram.com" target="_blank" class="text-[12px] leading-[1.7] text-blue-200/85 no-underline transition-colors hover:text-white">Instagram</a>
+                    <a href="https://x.com" target="_blank" class="text-[12px] leading-[1.7] text-blue-200/85 no-underline transition-colors hover:text-white">X</a>
+                    <a href="https://linkedin.com" target="_blank" class="text-[12px] leading-[1.7] text-blue-200/85 no-underline transition-colors hover:text-white">LinkedIn</a>
+                    <a href="https://spotify.com" target="_blank" class="text-[12px] leading-[1.7] text-blue-200/85 no-underline transition-colors hover:text-white">Spotify</a>
                 </div>
             </div>
         </div>

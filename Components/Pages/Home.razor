@@ -5,54 +5,55 @@
 <PageTitle>Master Yoga - Stretch Your Legs</PageTitle>
 
 <!-- Classes Modal -->
-<ClassesModal IsVisible="showClassesModal" 
-              OnClose="() => showClassesModal = false" 
+<ClassesModal IsVisible="showClassesModal"
+              OnClose="() => showClassesModal = false"
               OnSelectClass="HandleClassSelected" />
 
-<div class="home-page-wrapper">
+<div class="w-full bg-[#29326c] text-white font-sans overflow-x-hidden">
 
     <!-- TOP NAVIGATION BAR -->
-    <header class="home-navbar">
-        <a href="/" class="home-logo">
+    <header class="w-full bg-[#29326c] px-5 py-4 flex items-center justify-between border-b border-[#38438a]/40 md:px-9 lg:px-12">
+        <a href="/" class="font-display font-black text-xl text-[#0c102b] no-underline tracking-tight transition-opacity hover:opacity-90 md:text-2xl">
             Master Yoga
         </a>
 
-        <nav class="home-nav-menu">
-            <a href="/" class="home-nav-link">HOME</a>
-            <a href="/about" class="home-nav-link">ABOUT</a>
-            <a href="/reserve" class="home-nav-btn">
+        <nav class="flex items-center gap-5 md:gap-8">
+            <a href="/" class="font-black text-xs tracking-[0.15em] uppercase text-[#0c102b] no-underline transition-colors hover:text-white md:text-[13px]">HOME</a>
+            <a href="/about" class="font-black text-xs tracking-[0.15em] uppercase text-[#0c102b] no-underline transition-colors hover:text-white md:text-[13px]">ABOUT</a>
+            <a href="/reserve" class="font-black text-[11px] tracking-[0.1em] uppercase bg-[#808dfd] text-[#0c102b] py-2 px-[18px] rounded-md shadow-sm transition-all hover:bg-[#939ffd] active:scale-95 no-underline inline-block md:text-[12px]">
                 RESERVE YOUR SPOT
             </a>
         </nav>
     </header>
 
     <!-- SECTION 1: HERO TITLE BANNER -->
-    <section class="home-hero-banner">
-        <h1 class="home-hero-title">
+    <section class="w-full bg-[#4a5cce] px-5 py-3.5 border-t border-b border-[#38438a]/30 select-none md:px-9 md:py-5 lg:px-12 lg:py-[22px]">
+        <h1 class="font-display font-black leading-none tracking-[-0.04em] uppercase text-white m-0 text-5xl md:text-7xl lg:text-8xl xl:text-[128px]">
             STRETCH YOUR LEGS.
         </h1>
     </section>
 
     <!-- SECTION 2: TOP GRID (FROG YODA & FOR THE CHOSEN) -->
-    <section class="home-top-grid">
+    <section class="w-full flex flex-col border-b border-[#38438a] md:flex-row">
         <!-- Left: White Box with Frog Yoda -->
-        <div class="home-yoda-panel">
-            <img src="images/yoda-squat.png" 
-                 alt="Master Yoda Malasana Frog Squat" />
+        <div class="bg-white flex items-center justify-center p-7 min-h-[300px] md:flex-[8] md:p-10 md:min-h-[420px]">
+            <img src="images/yoda-squat.png"
+                 alt="Master Yoda Malasana Frog Squat"
+                 class="max-h-[300px] w-auto object-contain transition-transform hover:scale-105 md:max-h-[360px]" />
         </div>
 
         <!-- Right: For The Chosen -->
-        <div class="home-chosen-panel">
+        <div class="bg-[#29326c] p-7 flex flex-col justify-between border-t border-[#38438a] gap-6 md:flex-[4] md:p-10 md:border-t-0 md:border-l md:border-[#38438a] md:gap-0 lg:p-12">
             <div>
-                <h2 class="home-chosen-title">
+                <h2 class="font-display font-black text-2xl uppercase tracking-tight text-white m-0 mb-4 md:text-[28px] lg:text-[32px]">
                     FOR THE CHOSEN
                 </h2>
             </div>
             <div>
-                <p class="home-chosen-body">
+                <p class="text-[13px] text-blue-100/90 leading-[1.65] font-normal m-0 mb-4">
                     Train like an yoga master with top-tier equipment and expert programming. Whether you're building splitting or stretching your arms, we help you push past limits.
                 </p>
-                <a href="/about" class="home-text-link-btn">
+                <a href="/about" class="font-black text-[10px] tracking-[0.2em] uppercase bg-transparent border-none p-0 text-[#93c5fd] cursor-pointer transition-colors hover:text-white no-underline">
                     ABOUT US
                 </a>
             </div>
@@ -60,151 +61,128 @@
     </section>
 
     <!-- SECTION 3: THREE-COLUMN ROW (GUIDED, OPEN GYM, COBRA YODA) -->
-    <section id="about" class="home-three-col">
+    <section id="about" class="w-full flex flex-col border-b border-[#38438a] md:flex-row">
         <!-- Column 1: Guided By Masters -->
-        <div class="home-col-card">
+        <div class="bg-[#29326c] p-7 flex flex-col justify-between min-h-[260px] border-b border-[#38438a] md:flex-1 md:border-b-0 md:border-r md:border-[#38438a] md:p-10 lg:p-12">
             <div>
-                <h3 class="home-col-card-title">
+                <h3 class="font-display font-black text-2xl uppercase tracking-tight leading-[1.1] text-white m-0 mb-4 md:text-[28px] lg:text-[30px]">
                     GUIDED BY<br />MASTERS
                 </h3>
             </div>
-            <p class="home-col-card-body">
+            <p class="text-[13px] text-blue-100/90 leading-[1.65] font-normal mt-auto pt-4">
                 We believe in creating a positive environment where you can thrive. We're here to help you achieve your goals and unlock your full potential.
             </p>
         </div>
 
         <!-- Column 2: Dynamic Open Gym -->
-        <div class="home-col-card">
+        <div class="bg-[#29326c] p-7 flex flex-col justify-between min-h-[260px] border-b border-[#38438a] md:flex-1 md:border-b-0 md:border-r md:border-[#38438a] md:p-10 lg:p-12">
             <div>
-                <h3 class="home-col-card-title">
+                <h3 class="font-display font-black text-2xl uppercase tracking-tight leading-[1.1] text-white m-0 mb-4 md:text-[28px] lg:text-[30px]">
                     DYNAMIC OPEN GYM
                 </h3>
             </div>
-            <p class="home-col-card-body">
+            <p class="text-[13px] text-blue-100/90 leading-[1.65] font-normal mt-auto pt-4">
                 Our facility is the optimal environment for stretching and relaxation, fully equipped with top-of-the-line tools, ample training areas, and a focus on functional movement.
             </p>
         </div>
 
         <!-- Column 3: Yoda Cobra Pose Illustration -->
-        <div class="home-cobra-panel">
-            <img src="images/yoda-cobra.png" 
-                 alt="Yoda Cobra Pose Bhujangasana" />
+        <div class="bg-[#f2bf86] flex items-center justify-center overflow-hidden min-h-[260px] md:flex-1">
+            <img src="images/yoda-cobra.png"
+                 alt="Yoda Cobra Pose Bhujangasana"
+                 class="w-full h-full object-cover min-h-[260px] max-h-[380px] transition-transform hover:scale-105 block" />
         </div>
     </section>
 
     <!-- SECTION 4: JOIN THE COUNCIL BANNER -->
-    <section class="home-council-banner">
-        <h2 class="home-council-title">
-            <span class="home-council-title-white">JOIN THE </span><span class="home-council-title-accent">COUNCIL</span>
+    <section class="w-full bg-[#4a5cce] px-5 py-3.5 border-b border-[#38438a]/30 select-none md:px-9 md:py-5 lg:px-12 lg:py-[22px]">
+        <h2 class="font-display font-black leading-none tracking-[-0.04em] uppercase m-0 text-5xl md:text-7xl lg:text-8xl xl:text-[128px]">
+            <span class="text-white">JOIN THE </span><span class="text-[#808dfd]">COUNCIL</span>
         </h2>
     </section>
 
     <!-- SECTION 5: DISCOVER YOUR POTENTIAL & JEDI COUNCIL PHOTO -->
-    <section class="home-discover-grid">
+    <section class="w-full flex flex-col border-b border-[#38438a] md:flex-row">
         <!-- Left: Discover Your Potential -->
-        <div class="home-discover-panel">
+        <div class="bg-[#29326c] p-7 flex flex-col justify-between border-b border-[#38438a] md:flex-[4] md:p-10 md:border-b-0 md:border-r md:border-[#38438a] md:min-h-[460px] lg:p-12">
             <div>
-                <h3 class="home-discover-title">
+                <h3 class="font-display font-black text-2xl uppercase tracking-tight leading-[1.1] text-white m-0 mb-8 md:text-[28px] lg:text-[30px]">
                     DISCOVER YOUR<br />POTENTIAL
                 </h3>
 
-                <div class="home-features-list">
+                <div class="flex flex-col gap-6">
                     <div>
-                        <h4 class="home-feature-heading">EXPERT MASTERS</h4>
-                        <p class="home-feature-body">
-                            Jedi Master who are passionate about the progress of young padawans.
-                        </p>
+                        <h4 class="font-display font-black text-[12px] uppercase tracking-[0.1em] text-white m-0 mb-1 lg:text-[13px]">EXPERT MASTERS</h4>
+                        <p class="text-[12px] text-blue-200/90 leading-[1.65] m-0">Jedi Master who are passionate about the progress of young padawans.</p>
                     </div>
-
                     <div>
-                        <h4 class="home-feature-heading">PHILOSOPHY-DRIVEN PROGRAMS</h4>
-                        <p class="home-feature-body">
-                            Workouts that let you discover more about yourself.
-                        </p>
+                        <h4 class="font-display font-black text-[12px] uppercase tracking-[0.1em] text-white m-0 mb-1 lg:text-[13px]">PHILOSOPHY-DRIVEN PROGRAMS</h4>
+                        <p class="text-[12px] text-blue-200/90 leading-[1.65] m-0">Workouts that let you discover more about yourself.</p>
                     </div>
-
                     <div>
-                        <h4 class="home-feature-heading">A SUPPORTIVE COUNCIL</h4>
-                        <p class="home-feature-body">
-                            A council that pushes you to be your best.
-                        </p>
+                        <h4 class="font-display font-black text-[12px] uppercase tracking-[0.1em] text-white m-0 mb-1 lg:text-[13px]">A SUPPORTIVE COUNCIL</h4>
+                        <p class="text-[12px] text-blue-200/90 leading-[1.65] m-0">A council that pushes you to be your best.</p>
                     </div>
                 </div>
             </div>
 
-            <button @onclick="OpenClassesModal" class="home-view-classes-btn">
+            <button @onclick="OpenClassesModal" class="group font-black text-[10px] tracking-[0.2em] uppercase bg-transparent border-none p-0 text-[#93c5fd] cursor-pointer flex items-center gap-1.5 transition-colors hover:text-white mt-8">
                 <span>VIEW CLASSES</span>
-                <span class="home-arrow">→</span>
+                <span class="inline-block transition-transform group-hover:translate-x-1">→</span>
             </button>
         </div>
 
         <!-- Right: Jedi Council Photo -->
-        <div class="home-jedi-photo-panel">
-            <img src="images/jedi-council-hd.png" 
-                 alt="The Jedi High Council" />
+        <div class="bg-[#0a0f28] flex items-stretch overflow-hidden min-h-[340px] md:flex-[8] md:min-h-[460px]">
+            <img src="images/jedi-council-hd.png"
+                 alt="The Jedi High Council"
+                 class="w-full h-full object-cover min-h-[340px] transition-transform hover:scale-[1.02] block md:min-h-[460px]" />
         </div>
     </section>
 
-    <!-- SECTION 6: CTA BANNER (JOIN THE JEDI ORDER TODAY!) -->
-    <section class="home-cta-section">
-        <span class="home-cta-subtitle">
+    <!-- SECTION 6: CTA BANNER -->
+    <section class="w-full bg-[#150073] px-5 py-16 text-center border-b border-[#38438a]/50 flex flex-col items-center justify-center md:py-24 lg:py-[100px]">
+        <span class="font-black text-[10px] tracking-[0.3em] uppercase text-[#93c5fd] mb-3 block">
             WHAT WE BELIEVE IN
         </span>
-        <h2 class="home-cta-title">
+        <h2 class="font-display font-black text-[26px] leading-[1.15] tracking-tight uppercase text-white m-0 mb-8 md:text-[38px] lg:text-[46px]">
             JOIN THE JEDI ORDER TODAY!
         </h2>
-        <a href="/reserve" class="home-nav-btn">
+        <a href="/reserve" class="font-black text-[11px] tracking-[0.1em] uppercase bg-[#808dfd] text-[#0c102b] py-2 px-[18px] rounded-md shadow-sm transition-all hover:bg-[#939ffd] active:scale-95 no-underline inline-block md:text-[12px]">
             RESERVE YOUR SPOT
         </a>
     </section>
 
     <!-- SECTION 7: FOOTER -->
-    <footer class="home-footer">
-        <!-- Giant Watermark Logo -->
-        <div class="home-footer-watermark">
+    <footer class="w-full bg-[#29326c] px-6 py-12 text-white md:px-10 md:py-[60px] lg:px-[60px] lg:py-[72px]">
+        <div class="font-display font-black text-[36px] leading-none tracking-[-0.04em] uppercase text-[#1b224d] mb-10 select-none md:text-[60px] lg:text-[72px]">
             MASTER YOGA
         </div>
 
-        <!-- Three Columns Info -->
-        <div class="home-footer-grid">
-            <!-- Col 1: Contact -->
-            <div class="home-footer-col">
-                <h5 class="home-footer-heading">CONTACT</h5>
-                <p class="home-footer-text">Email: <a href="mailto:yoga@jedicouncil.com" class="home-footer-link">yoga@jedicouncil.com</a></p>
-                <p class="home-footer-text">Phone: <a href="tel:2035556555" class="home-footer-link">(203) 555-6555</a></p>
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-10">
+            <div class="flex flex-col">
+                <h5 class="font-display font-black text-[13px] tracking-[0.15em] uppercase text-white m-0 mb-3.5">CONTACT</h5>
+                <p class="text-[12px] leading-[1.7] text-blue-200/85 m-0">Email: <a href="mailto:yoga@jedicouncil.com" class="text-blue-200/85 no-underline transition-colors hover:text-white">yoga@jedicouncil.com</a></p>
+                <p class="text-[12px] leading-[1.7] text-blue-200/85 m-0">Phone: <a href="tel:2035556555" class="text-blue-200/85 no-underline transition-colors hover:text-white">(203) 555-6555</a></p>
             </div>
 
-            <!-- Col 2: Opening Hours -->
-            <div class="home-footer-col">
-                <h5 class="home-footer-heading">OPENING HOURS</h5>
-                <div class="home-hours-table">
-                    <div class="home-hours-row">
-                        <span>MON – FRI</span>
-                        <span>5:00 – 23:00</span>
-                    </div>
-                    <div class="home-hours-row">
-                        <span>SATURDAYS</span>
-                        <span>6:00 – 16:00</span>
-                    </div>
-                    <div class="home-hours-row">
-                        <span>SUNDAYS</span>
-                        <span>6:00 – 13:00</span>
-                    </div>
-                    <div class="home-hours-row">
-                        <span>HOLIDAYS</span>
-                        <span>8:00 – 16:00</span>
-                    </div>
+            <div class="flex flex-col">
+                <h5 class="font-display font-black text-[13px] tracking-[0.15em] uppercase text-white m-0 mb-3.5">OPENING HOURS</h5>
+                <div class="flex flex-col gap-1 max-w-[220px]">
+                    <div class="flex justify-between text-[12px] leading-[1.6] text-blue-200/85 font-medium"><span>MON – FRI</span><span>5:00 – 23:00</span></div>
+                    <div class="flex justify-between text-[12px] leading-[1.6] text-blue-200/85 font-medium"><span>SATURDAYS</span><span>6:00 – 16:00</span></div>
+                    <div class="flex justify-between text-[12px] leading-[1.6] text-blue-200/85 font-medium"><span>SUNDAYS</span><span>6:00 – 13:00</span></div>
+                    <div class="flex justify-between text-[12px] leading-[1.6] text-blue-200/85 font-medium"><span>HOLIDAYS</span><span>8:00 – 16:00</span></div>
                 </div>
             </div>
 
-            <!-- Col 3: Social -->
-            <div class="home-footer-col">
-                <h5 class="home-footer-heading">SOCIAL</h5>
-                <div class="home-social-list">
-                    <a href="https://instagram.com" target="_blank" class="home-footer-link">Instagram</a>
-                    <a href="https://x.com" target="_blank" class="home-footer-link">X</a>
-                    <a href="https://linkedin.com" target="_blank" class="home-footer-link">LinkedIn</a>
-                    <a href="https://spotify.com" target="_blank" class="home-footer-link">Spotify</a>
+            <div class="flex flex-col">
+                <h5 class="font-display font-black text-[13px] tracking-[0.15em] uppercase text-white m-0 mb-3.5">SOCIAL</h5>
+                <div class="flex flex-col gap-1.5">
+                    <a href="https://instagram.com" target="_blank" class="text-[12px] leading-[1.7] text-blue-200/85 no-underline transition-colors hover:text-white">Instagram</a>
+                    <a href="https://x.com" target="_blank" class="text-[12px] leading-[1.7] text-blue-200/85 no-underline transition-colors hover:text-white">X</a>
+                    <a href="https://linkedin.com" target="_blank" class="text-[12px] leading-[1.7] text-blue-200/85 no-underline transition-colors hover:text-white">LinkedIn</a>
+                    <a href="https://spotify.com" target="_blank" class="text-[12px] leading-[1.7] text-blue-200/85 no-underline transition-colors hover:text-white">Spotify</a>
                 </div>
             </div>
         </div>
