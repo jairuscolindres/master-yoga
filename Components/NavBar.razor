@@ -1,0 +1,54 @@
+@* Shared navbar used by all pages.
+   ActivePage: "home" | "about" | "reserve" — highlights the matching nav link *@
+
+<header class="w-full bg-[#29326c] px-5 py-4 flex items-center justify-between border-b border-[#38438a]/40 relative z-40 md:px-10 lg:px-[60px]">
+    <a href="/" class="font-display font-black text-xl text-[#0c102b] no-underline tracking-tight transition-opacity hover:opacity-85 md:text-2xl">
+        Master Yoga
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex items-center gap-7">
+        <a href="/" class="font-black text-[13px] tracking-[0.15em] uppercase no-underline transition-colors @(ActivePage == "home" ? "text-white" : "text-[#0c102b] hover:text-white")">HOME</a>
+        <a href="/about" class="font-black text-[13px] tracking-[0.15em] uppercase no-underline transition-colors @(ActivePage == "about" ? "text-white" : "text-[#0c102b] hover:text-white")">ABOUT</a>
+        <a href="/reserve" class="font-black text-[12px] tracking-[0.1em] uppercase bg-[#808dfd] text-[#0c102b] py-[9px] px-[18px] rounded-md shadow-sm border-none transition-all hover:bg-[#939ffd] active:scale-[0.97] no-underline inline-block">
+            RESERVE YOUR SPOT
+        </a>
+    </nav>
+
+    <!-- Mobile Toggle (+/✕) -->
+    <button class="md:hidden flex items-center justify-center bg-transparent border-none text-[32px] font-light text-[#0c102b] cursor-pointer leading-none p-1 transition-colors hover:text-white"
+            @onclick="ToggleMobileMenu" aria-label="Toggle navigation">
+        @(isMobileMenuOpen ? "✕" : "+")
+    </button>
+</header>
+
+<!-- Mobile Dropdown -->
+@if (isMobileMenuOpen)
+{
+    <div class="flex flex-col bg-[#1f2756] px-6 py-[18px] border-b border-[#38438a] gap-4 md:hidden">
+        <a href="/" class="font-black text-sm tracking-[0.15em] uppercase no-underline py-1.5 transition-colors @(ActivePage == "home" ? "text-white" : "text-blue-200/80 hover:text-white")"
+           @onclick="CloseMobileMenu">HOME</a>
+        <a href="/about" class="font-black text-sm tracking-[0.15em] uppercase no-underline py-1.5 transition-colors @(ActivePage == "about" ? "text-white" : "text-blue-200/80 hover:text-white")"
+           @onclick="CloseMobileMenu">ABOUT</a>
+        <a href="/reserve" class="font-black text-[12px] tracking-[0.1em] uppercase bg-[#808dfd] text-[#0c102b] py-3 px-[18px] rounded-md text-center border-none no-underline inline-block hover:bg-[#939ffd]"
+           @onclick="CloseMobileMenu">
+            RESERVE YOUR SPOT
+        </a>
+    </div>
+}
+
+@code {
+    [Parameter] public string ActivePage { get; set; } = "";
+
+    private bool isMobileMenuOpen = false;
+
+    private void ToggleMobileMenu()
+    {
+        isMobileMenuOpen = !isMobileMenuOpen;
+    }
+
+    private void CloseMobileMenu()
+    {
+        isMobileMenuOpen = false;
+    }
+}
